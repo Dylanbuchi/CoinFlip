@@ -13,10 +13,10 @@ public class CoinFlip {
     private final Random random;
 
     private final String tails;
-    private final String hail;
-    private String hailOrTails;
+    private final String heads;
+    private String headORTail;
 
-    private int countHail;
+    private int countHead;
     private int countTails;
     private int countGame;
 
@@ -28,12 +28,12 @@ public class CoinFlip {
         random = new Random();
 
         // Strings
-        tails = "tails";
-        hail = "hail";
-        hailOrTails = "";
+        tails = "tail";
+        heads = "head";
+        headORTail = "";
 
         // Integers
-        countHail = 0;
+        countHead = 0;
         countTails = 0;
         countGame = 0;
 
@@ -55,18 +55,18 @@ public class CoinFlip {
                 /// 2nd while loop to be sure user inputs correct info
                 while (!input.equals("exit")) {
 
-                    System.out.println("Please select " + hail + " or " + tails);
-                    hailOrTails = in.next().toLowerCase();
+                    System.out.println("Please select " + heads + " or " + tails);
+                    headORTail = in.next().toLowerCase();
 
                     // when it's all correct break out
-                    if (hailOrTails.equals("hail") || hailOrTails.equals("tails")) {
+                    if (headORTail.equals("head") || headORTail.equals("tail")) {
                         break;
 
                     }
 
                 }
 
-                System.out.println("You choose " + hailOrTails + " Good luck");
+                System.out.println("You choose " + headORTail + " Good luck");
 
                 // Counting the number of coins flipped
                 countGame++;
@@ -79,9 +79,9 @@ public class CoinFlip {
 
                 if (randomNumber == 1) {
 
-                    System.out.println("The coin is " + hail);
+                    System.out.println("The coin is " + heads);
 
-                    if (hail.equals(hailOrTails)) {
+                    if (heads.equals(headORTail)) {
 
                         System.out.println("You won");
 
@@ -89,12 +89,12 @@ public class CoinFlip {
                         System.out.println("Better luck next time");
                     }
 
-                    countHail++;
+                    countHead++;
 
                 } else if (randomNumber == 2) {
                     System.out.println("The coin is " + tails);
 
-                    if (tails.equals(hailOrTails)) {
+                    if (tails.equals(headORTail)) {
 
                         System.out.println("You won");
 
@@ -107,7 +107,7 @@ public class CoinFlip {
 
                 // end game stats and ask user if wants to restart or quit
                 if (countGame == 1) {
-                    System.out.println("Total of Hail: " + countHail + "\nTotal of Tails: " + countTails
+                    System.out.println("Total of Head: " + countHead + "\nTotal of Tails: " + countTails
                             + " \nYou flipped " + countGame + " coin do you want to play again Y|N");
                     input = in.next().toLowerCase();
 
@@ -136,7 +136,7 @@ public class CoinFlip {
 
                 } else if (countGame > 1) {
 
-                    System.out.println("Total of Hail: " + countHail + "\nTotal of Tails: " + countTails
+                    System.out.println("Total of Head: " + countHead + "\nTotal of Tails: " + countTails
                             + " \nYou flipped " + countGame + " coins do you want to play again Y|N");
 
                     input = in.next().toLowerCase();
