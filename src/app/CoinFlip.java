@@ -42,7 +42,7 @@ public class CoinFlip {
     // starting the game
     public void start() {
 
-        System.out.print("Hello input flip to play: ");
+        System.out.print("Hello, put flip to play: ");
 
         String input = in.next().toLowerCase();
 
@@ -53,7 +53,7 @@ public class CoinFlip {
             while (!input.equals("exit")) {
 
                 /// 2nd while loop to be sure user inputs correct info
-                while (true) {
+                while (!input.equals("exit")) {
 
                     System.out.println("Please select " + hail + " or " + tails);
                     hailOrTails = in.next().toLowerCase();
@@ -71,7 +71,7 @@ public class CoinFlip {
                 // Counting the number of coins flipped
                 countGame++;
                 System.out.println("Flipping the coin...");
-
+                System.out.println("...");
                 System.out.println("...");
 
                 // creating random numbers between 1 and 2 to do a 50/50
@@ -99,38 +99,74 @@ public class CoinFlip {
                         System.out.println("You won");
 
                     } else {
-                        System.out.println("Better luck next time!");
+                        System.out.println("Better luck next time");
                     }
                     countTails++;
 
                 }
 
                 // end game stats and ask user if wants to restart or quit
-                System.out.println("Total of Hail: " + countHail + "\nTotal of Tails: " + countTails + " \nYou flipped "
-                        + countGame + " coins do you want to play again? Y|N");
+                if (countGame == 1) {
+                    System.out.println("Total of Hail: " + countHail + "\nTotal of Tails: " + countTails
+                            + " \nYou flipped " + countGame + " coin do you want to play again Y|N");
+                    input = in.next().toLowerCase();
 
-                input = in.next().toLowerCase();
+                    if (input.equals("n")) {
+                        System.out.println("Bye");
+                        break;
 
-                if (input.equals("n")) {
-                    System.out.println("Bye");
-                    break;
+                    } else if (input.contains("y")) {
 
-                } else if (input.contains("y")) {
+                    } else {
 
-                } else {
+                        // loop to check if user inputs correct info
+                        while (!input.equals("y")) {
 
-                    // loop to check if user inputs correct info
-                    while (!input.equals("y")) {
+                            System.out.println("Error! Wrong input, do you want to play again Y|N");
+                            input = in.next().toLowerCase();
 
-                        System.out.println("Error! Wrong input, do you want to play again? Y|N");
-                        input = in.next().toLowerCase();
+                            if (input.equals("n")) {
+                                input = "exit";
+                                return;
+                            }
+
+                        }
+                    }
+
+                } else if (countGame > 1) {
+
+                    System.out.println("Total of Hail: " + countHail + "\nTotal of Tails: " + countTails
+                            + " \nYou flipped " + countGame + " coins do you want to play again Y|N");
+
+                    input = in.next().toLowerCase();
+
+                    if (input.equals("n")) {
+                        System.out.println("Bye");
+                        break;
+
+                    } else if (input.contains("y")) {
+
+                    } else {
+
+                        // loop to check if user inputs correct info
+                        while (!input.equals("y")) {
+
+                            System.out.println("Error! Wrong input, do you want to play again Y|N");
+                            input = in.next().toLowerCase();
+
+                            if (input.equals("n")) {
+                                System.out.println("Bye");
+                                input = "exit";
+                                return;
+
+                            }
+                        }
 
                     }
 
                 }
-
             }
-            // biiiiiiiig bye
+            // bye
         } else {
             System.out.println("Bye");
             return;
