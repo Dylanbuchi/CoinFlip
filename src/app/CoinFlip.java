@@ -70,7 +70,7 @@ public class CoinFlip {
 
                 // Counting the number of coins flipped
                 countGame++;
-                System.out.println("Flipping de coin...");
+                System.out.println("Flipping the coin...");
 
                 System.out.println("...");
 
@@ -99,7 +99,7 @@ public class CoinFlip {
                         System.out.println("You won");
 
                     } else {
-                        System.out.println("Better luck next time");
+                        System.out.println("Better luck next time!");
                     }
                     countTails++;
 
@@ -107,7 +107,7 @@ public class CoinFlip {
 
                 // end game stats and ask user if wants to restart or quit
                 System.out.println("Total of Hail: " + countHail + "\nTotal of Tails: " + countTails + " \nYou flipped "
-                        + countGame + " coins do you want to play again Y|N");
+                        + countGame + " coins do you want to play again? Y|N");
 
                 input = in.next().toLowerCase();
 
@@ -122,7 +122,7 @@ public class CoinFlip {
                     // loop to check if user inputs correct info
                     while (!input.equals("y")) {
 
-                        System.out.println("Error! Wrong input, do you want to play again Y|N");
+                        System.out.println("Error! Wrong input, do you want to play again? Y|N");
                         input = in.next().toLowerCase();
 
                     }
