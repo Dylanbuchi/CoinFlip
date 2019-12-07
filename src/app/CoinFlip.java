@@ -126,6 +126,7 @@ public class CoinFlip {
                             input = in.next().toLowerCase();
 
                             if (input.equals("n")) {
+                                System.out.println("Bye");
                                 input = "exit";
                                 return;
                             }
